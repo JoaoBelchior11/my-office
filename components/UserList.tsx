@@ -11,6 +11,7 @@ interface UserListProps {
 const defaultEmptyUser: User = {
   name: "",
   picture: "",
+  department: "",
 };
 
 export default function UserList(props: UserListProps) {

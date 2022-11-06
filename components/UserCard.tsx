@@ -32,11 +32,12 @@ const styles = StyleSheet.create({
   userCard: {
     padding: 5,
     width: "100%",
-    //borderRadius: 10,
+    borderRadius: 10,
     backgroundColor: "#fff",
     flexDirection: "row",
     alignItems: "center",
     marginBottom: 5,
+    height: 80,
   },
 
   userImage: {
