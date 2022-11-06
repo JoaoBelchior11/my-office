@@ -9,33 +9,52 @@ interface UserCardProps {
 export default function UserCard(props: UserCardProps) {
   const { user, onUserPress } = props;
   return (
-    <View key={user.name} style={styles.userCard}>
-      <Pressable onPress={onUserPress}>
+    <Pressable onPress={onUserPress}>
+      <View key={user.name} style={styles.userCard}>
         <Image
           style={styles.userImage}
           source={require("../assets/images/blank_profile.png")}
         />
-        <Text>{user.name}</Text>
-      </Pressable>
-    </View>
+        <View style={styles.cardColumns}>
+          <Text style={styles.columnLabel}>Name</Text>
+          <Text style={styles.cardLabel}>{user.name}</Text>
+        </View>
+        <View style={styles.cardColumns}>
+          <Text style={styles.columnLabel}>Department</Text>
+          <Text>{user.department}</Text>
+        </View>
+      </View>
+    </Pressable>
   );
 }
 
 const styles = StyleSheet.create({
   userCard: {
-    margin: 5,
     padding: 5,
-    justifyContent: "center",
-    alignItems: "center",
-    width: 100,
-    height: 100,
-    borderRadius: 10,
+    width: "100%",
+    //borderRadius: 10,
     backgroundColor: "#fff",
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 5,
   },
 
   userImage: {
     width: 50,
     height: 50,
     borderRadius: 10,
+  },
+
+  cardLabel: {
+    marginHorizontal: 5,
+    flexWrap: "wrap",
+    flexDirection: "row",
+  },
+  cardColumns: {
+    alignItems: "center",
+    flex: 1,
+  },
+  columnLabel: {
+    color: "gray",
   },
 });

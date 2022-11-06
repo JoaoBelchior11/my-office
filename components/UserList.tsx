@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { StyleSheet, View } from "react-native";
+import { FlatList, StyleSheet, View } from "react-native";
 import { User } from "../interfaces/user";
 import UserCard from "./UserCard";
 import UserModal from "./UserModal";
@@ -34,13 +34,13 @@ export default function UserList(props: UserListProps) {
         onCloseModal={handleCloseModal}
       />
       <View style={styles.container}>
-        {users.map((user) => (
-          <UserCard
-            key={user.name}
-            user={user}
-            onUserPress={() => handleUserPress(user)}
-          />
-        ))}
+        <FlatList
+          keyExtractor={(user) => user.name}
+          data={users}
+          renderItem={({ item }) => (
+            <UserCard user={item} onUserPress={() => handleUserPress(item)} />
+          )}
+        />
       </View>
     </>
   );
@@ -48,12 +48,9 @@ export default function UserList(props: UserListProps) {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
     marginHorizontal: 10,
+    flex: 1,
 
-    flexWrap: "wrap",
-    flex: 4,
+    width: "90%",
   },
 });

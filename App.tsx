@@ -17,6 +17,8 @@ export default function App() {
         <Text>My Office</Text>
       </View>
       <View style={styles.main}>
+        <Text style={styles.mainText}>Give Feedback and Props!</Text>
+
         <UserList users={users} />
       </View>
     </View>
@@ -25,9 +27,9 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "gray",
+    backgroundColor: "#484f58",
     flex: 1,
-    padding: 20,
+    padding: 10,
   },
   head: {
     flex: 1,
@@ -36,5 +38,11 @@ const styles = StyleSheet.create({
   },
   main: {
     flex: 5,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  mainText: {
+    marginBottom: 15,
+    color: "#fff",
   },
 });
